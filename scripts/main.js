@@ -75,22 +75,33 @@ document.addEventListener('DOMContentLoaded', () => {
       const lastName = document.querySelector("input[name='lastName'").value
       const email = document.querySelector("input[name='email'").value
       const phone = document.querySelector("input[name='full_phone'").value
-      const location = document.querySelector("input[name='location'").value
+      const dateOfBirth = document.querySelector("input[name='dateOfBirth'")
+        .value
       const gender = document.querySelector("input[name='gender'").value
-      const linkedin = document.querySelector("input[name='linkedin'").value
-      const twitter = document.querySelector("input[name='twitter'").value
-      const instagram = document.querySelector("input[name='instagram'").value
-      const facebook = document.querySelector("input[name='facebook'").value
-      const skype = document.querySelector("input[name='skype'").value
-      const preferredSocialMedia = document.querySelector(
-        "input[name='preferredSocialMedia'"
+      const residentInAbuja = document.querySelector(
+        "input[name='residentInAbuja'"
       ).value
-      const volunteerUnit = document.querySelector(
-        "select[name='volunteerUnit'"
+      const organisationName = document.querySelector(
+        "input[name='organisationName'"
       ).value
-      const reasonForVolunteering = document.querySelector(
-        "textarea[name='reasonForVolunteering'"
+      const studentLevel = document.querySelector("select[name='studentLevel'")
+        .value
+      const yearOfCallToBar = document.querySelector(
+        "select[name='yearOfCallToBar'"
       ).value
+      const previousHumanRightsEducation = document.querySelector(
+        "textarea[name='previousHumanRightsEducation'"
+      ).value
+      const areaOfInterest = document.querySelector(
+        "textarea[name='areaOfInterest'"
+      ).value
+      const expectationAndMotivation = document.querySelector(
+        "textarea[name='expectationAndMotivation'"
+      ).value
+      const benefitsOfCourse = document.querySelector(
+        "textarea[name='benefitsOfCourse'"
+      ).value
+      const referral = document.querySelector("input[name='referral'").value
 
       // construct formData
       const formBody = {
@@ -98,22 +109,21 @@ document.addEventListener('DOMContentLoaded', () => {
         lastName: lastName,
         email: email,
         phone: phone,
-        location: location,
+        dateOfBirth: dateOfBirth,
         gender: gender,
-        socialMediaHandles: {
-          linkedin: linkedin,
-          twitter: twitter,
-          instagram: instagram,
-          facebook: facebook,
-          skype: skype
-        },
-        preferredSocialMedia: preferredSocialMedia,
-        volunteerUnit: instance.getSelectedValues(),
-        reasonForVolunteering: reasonForVolunteering
+        residentInAbuja: residentInAbuja,
+        organisationName: organisationName,
+        studentLevel: studentLevel,
+        yearOfCallToBar: yearOfCallToBar,
+        previousHumanRightsEducation: previousHumanRightsEducation,
+        areaOfInterest: areaOfInterest,
+        expectationAndMotivation: expectationAndMotivation,
+        benefitsOfCourse: benefitsOfCourse,
+        referral: referral
       }
 
       // send it for processing
-      fetch('https://hbbafrica-api.herokuapp.com/volunteer/create', {
+      fetch('https://hbbafrica-api.herokuapp.com/course/apply', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json'
@@ -123,10 +133,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(response => response.json())
         .then(data => {
           console.log(data)
-          if (data.message === 'Volunteer created Successfully') {
+          if (data.message === 'Applicant created Successfully') {
             swal(
-              'Application Successful!',
-              'Your volunteer Application was successful!',
+              'Application submitted successfuly!',
+              'Your course Application was successful!',
               'success'
             )
             setTimeout(
@@ -134,11 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
               3000
             )
           } else {
-            swal(
-              'Already Registered!',
-              'You have already registered!',
-              'warning'
-            )
+            swal('Already applied!', 'You have already applied!', 'warning')
             setTimeout(
               (window.location = 'https://hopebehindbarsafrica.org'),
               3000
