@@ -71,37 +71,39 @@ document.addEventListener('DOMContentLoaded', () => {
         'Loading <span class="spinner"><i class="fa fa-spinner fa-spin"></i></span>'
 
       // Create Form Variables
-      const firstName = document.querySelector("input[name='firstName'").value
-      const lastName = document.querySelector("input[name='lastName'").value
-      const email = document.querySelector("input[name='email'").value
-      const phone = document.querySelector("input[name='full_phone'").value
-      const dateOfBirth = document.querySelector("input[name='dateOfBirth'")
+      const firstName = document.querySelector("input[name='firstName']").value
+      const lastName = document.querySelector("input[name='lastName']").value
+      const email = document.querySelector("input[name='email']").value
+      const phone = document.querySelector("input[name='full_phone']").value
+      const dateOfBirth = document.querySelector("input[name='dateOfBirth']")
         .value
-      const gender = document.querySelector("input[name='gender'").value
+      const gender = document.querySelector("input[name='gender']:checked")
+        .value
       const residentInAbuja = document.querySelector(
-        "input[name='residentInAbuja'"
+        "input[name='residentInAbuja']:checked"
       ).value
       const organisationName = document.querySelector(
-        "input[name='organisationName'"
+        "input[name='organisationName']"
       ).value
-      const studentLevel = document.querySelector("select[name='studentLevel'")
+      const studentLevel = document.querySelector("select[name='studentLevel']")
         .value
       const yearOfCallToBar = document.querySelector(
-        "select[name='yearOfCallToBar'"
+        "select[name='yearOfCallToBar']"
       ).value
       const previousHumanRightsEducation = document.querySelector(
-        "textarea[name='previousHumanRightsEducation'"
+        "textarea[name='previousHumanRightsEducation']"
       ).value
       const areaOfInterest = document.querySelector(
-        "textarea[name='areaOfInterest'"
+        "textarea[name='areaOfInterest']"
       ).value
       const expectationAndMotivation = document.querySelector(
-        "textarea[name='expectationAndMotivation'"
+        "textarea[name='expectationAndMotivation']"
       ).value
       const benefitsOfCourse = document.querySelector(
-        "textarea[name='benefitsOfCourse'"
+        "textarea[name='benefitsOfCourse']"
       ).value
-      const referral = document.querySelector("input[name='referral'").value
+      const referral = document.querySelector("input[name='referral']:checked")
+        .value
 
       // construct formData
       const formBody = {
