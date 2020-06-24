@@ -124,40 +124,38 @@ document.addEventListener('DOMContentLoaded', () => {
         referral: referral
       }
 
-      console.log(formBody)
-
-      //   // send it for processing
-      //   fetch('https://hbbafrica-api.herokuapp.com/course/apply', {
-      //     method: 'post',
-      //     headers: {
-      //       'Content-Type': 'application/json'
-      //     },
-      //     body: JSON.stringify(formBody)
-      //   })
-      //     .then(response => response.json())
-      //     .then(data => {
-      //       console.log(data)
-      //       if (data.message === 'Applicant created Successfully') {
-      //         swal(
-      //           'Application submitted successfuly!',
-      //           'Your course Application was successful!',
-      //           'success'
-      //         )
-      //         setTimeout(
-      //           (window.location = 'https://hopebehindbarsafrica.org'),
-      //           3000
-      //         )
-      //       } else {
-      //         swal('Already applied!', 'You have already applied!', 'warning')
-      //         setTimeout(
-      //           (window.location = 'https://hopebehindbarsafrica.org'),
-      //           3000
-      //         )
-      //       }
-      //     })
-      //     .catch(err => {
-      //       console.log('The request failed', err)
-      //     })
+      // send it for processing
+      fetch('https://hbbafrica-api.herokuapp.com/course/apply', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formBody)
+      })
+        .then(response => response.json())
+        .then(data => {
+          console.log(data)
+          if (data.message === 'Applicant created Successfully') {
+            swal(
+              'Application submitted successfuly!',
+              'Your course Application was successful!',
+              'success'
+            )
+            setTimeout(
+              (window.location = 'https://hopebehindbarsafrica.org'),
+              3000
+            )
+          } else {
+            swal('Already applied!', 'You have already applied!', 'warning')
+            setTimeout(
+              (window.location = 'https://hopebehindbarsafrica.org'),
+              3000
+            )
+          }
+        })
+        .catch(err => {
+          console.log('The request failed', err)
+        })
     }
   })
 })
